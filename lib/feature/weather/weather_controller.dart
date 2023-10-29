@@ -1,11 +1,10 @@
-// ignore_for_file: unused_local_variable
+// ignore_for_file: unused_local_variable, prefer_interpolation_to_compose_strings
 
 import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:logger/logger.dart';
 import 'package:weather_app_flutter/data/local/storage/storage_constants.dart';
 import 'package:weather_app_flutter/data/remote/api_services.dart';
 import 'package:weather_app_flutter/data/remote/base/base_controller.dart';

@@ -57,10 +57,8 @@ class CardBMKG extends StatelessWidget {
             ),
             child: Text(
               (controller.currentEarthquake != null)
-                  ? controller.currentEarthquake.potensi
-                  : (controller.updateEarthquake == null)
-                      ? ""
-                      : controller.updateEarthquake.potensi,
+                  ? controller.currentEarthquake.potensi ?? ""
+                  : controller.updateEarthquake.potensi ?? "",
               style: TextStyle(
                 fontSize: 3.w,
                 fontWeight: FontWeight.w700,
@@ -92,10 +90,8 @@ class CardBMKG extends StatelessWidget {
                       ),
                       Text(
                         (controller.currentEarthquake != null)
-                            ? controller.currentEarthquake.magnitude
-                            : (controller.updateEarthquake == null)
-                                ? ""
-                                : controller.updateEarthquake.magnitude,
+                            ? controller.currentEarthquake.magnitude ?? ""
+                            : controller.updateEarthquake.magnitude ?? "",
                         style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w900,
@@ -125,10 +121,8 @@ class CardBMKG extends StatelessWidget {
                       ),
                       Text(
                         (controller.currentEarthquake != null)
-                            ? controller.currentEarthquake.kedalaman
-                            : (controller.updateEarthquake == null)
-                                ? "0"
-                                : controller.updateEarthquake.kedalaman,
+                            ? controller.currentEarthquake.kedalaman ?? "0"
+                            : controller.updateEarthquake.kedalaman ?? "0",
                         style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w900,
@@ -151,10 +145,8 @@ class CardBMKG extends StatelessWidget {
                       ),
                       Text(
                         (controller.currentEarthquake != null)
-                            ? controller.currentEarthquake.lintang
-                            : (controller.updateEarthquake == null)
-                                ? "0"
-                                : controller.updateEarthquake.lintang,
+                            ? controller.currentEarthquake.lintang ?? "0"
+                            : controller.updateEarthquake.lintang ?? "0",
                         style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w700,
@@ -162,10 +154,8 @@ class CardBMKG extends StatelessWidget {
                       ),
                       Text(
                         (controller.currentEarthquake != null)
-                            ? controller.currentEarthquake.bujur
-                            : (controller.updateEarthquake == null)
-                                ? "0"
-                                : controller.updateEarthquake.bujur,
+                            ? controller.currentEarthquake.bujur ?? "0"
+                            : controller.updateEarthquake.bujur ?? "0",
                         style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w900,

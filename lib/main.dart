@@ -25,16 +25,17 @@ void main() async {
   }
   await Initializer.init();
 
-  if (kDebugMode) {
-    runApp(
-      DevicePreview(
-        enabled: !kReleaseMode,
-        builder: (context) => const MyApp(),
-      ),
-    );
-  } else {
-    runApp(const MyApp());
-  }
+  // if (kDebugMode) {
+  //   runApp(
+  //     DevicePreview(
+  //       enabled: !kReleaseMode,
+  //       builder: (context) => const MyApp(),
+  //     ),
+  //   );
+  // } else {
+  //   runApp(const MyApp());
+  // }
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -45,7 +46,7 @@ class MyApp extends StatelessWidget {
     return Sizer(builder: (context, orientation, deviceType) {
       return GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: PageName.LOADER,
+        initialRoute: PageName.SPLASHSCREEN,
         getPages: PageRoutes.pages,
         theme: AppTheme.buildThemeData(false),
         builder: (BuildContext context, child) {

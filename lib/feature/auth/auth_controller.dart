@@ -43,6 +43,7 @@ class AuthController extends GetxController {
 
   Future<void> authChanged(AuthState? state) async {
     if (state?.appStatus == AppType.INITIAL) {
+      await Future.delayed(const Duration(seconds: 3));
       await setup();
       await checkToken();
     } else if (state?.appStatus == AppType.UNAUTHENTICATED) {

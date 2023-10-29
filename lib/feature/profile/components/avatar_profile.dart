@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:weather_app_flutter/resources/resources.dart';
+import 'package:weather_app_flutter/utils/dialog/modal_dialog.dart';
 
 class AvatarProfile extends StatelessWidget {
   const AvatarProfile({Key? key, this.controller, this.parentController})
@@ -15,7 +16,7 @@ class AvatarProfile extends StatelessWidget {
       children: [
         Stack(
           children: [
-            Container(
+            SizedBox(
               width: 35.w,
               height: 35.w,
             ),
@@ -63,7 +64,13 @@ class AvatarProfile extends StatelessWidget {
               right: 10,
               bottom: 10,
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  CustomModalDialog().dialogModuleNotReady(
+                    context,
+                    "Fitur Belum Tersedia!",
+                    "Mohon maaf fitur ini belum tersedia dan masih dalam tahap pengembangan.",
+                  );
+                },
                 child: Container(
                   height: 12.w,
                   width: 12.w,

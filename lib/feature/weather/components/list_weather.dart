@@ -56,33 +56,36 @@ class ListWeather extends StatelessWidget {
                         ? null
                         : Border.all(
                             width: 1,
-                            color: AppColors.red,
+                            color: AppColors.grey,
                           ),
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        (controller.compareDate(
-                                controller.list5DaysWeather[index].dtTxt
-                                    .toString(),
-                                controller
-                                    .list5DaysWeather[index +
-                                        ((controller.list5DaysWeather.length ==
-                                                index + 1)
-                                            ? 0
-                                            : 1)]
-                                    .dtTxt
-                                    .toString()))
-                            ? "Now"
-                            : controller.getDayName(
-                                controller.list5DaysWeather[index].dtTxt.day %
-                                    7),
-                        style: TextStyle(
-                          fontSize: 4.w,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
+                      (controller.list5DaysWeather == null)
+                          ? SizedBox()
+                          : Text(
+                              (controller.compareDate(
+                                      controller.list5DaysWeather[index].dtTxt
+                                          .toString(),
+                                      controller
+                                          .list5DaysWeather[index +
+                                              ((controller.list5DaysWeather
+                                                          .length ==
+                                                      index + 1)
+                                                  ? 0
+                                                  : 1)]
+                                          .dtTxt
+                                          .toString()))
+                                  ? "Now"
+                                  : controller.getDayName(controller
+                                          .list5DaysWeather[index].dtTxt.day %
+                                      7),
+                              style: TextStyle(
+                                fontSize: 4.w,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
                       Text(
                         controller.formatDate2(controller
                                 .list5DaysWeather[index].dtTxt

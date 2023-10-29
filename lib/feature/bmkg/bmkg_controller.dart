@@ -34,7 +34,7 @@ class BMKGController extends BaseController<Gempa> {
     super.onInit();
   }
 
-  GempaData updateEarthquake = GempaData();
+  GempaData? updateEarthquake;
   Gempa? currentEarthquake;
   Rxn<int> earthquakeIndex = Rxn();
 

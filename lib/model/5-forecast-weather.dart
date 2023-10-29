@@ -1,4 +1,14 @@
+// To parse this JSON data, do
+//
+//     final response5ForecastWeather = response5ForecastWeatherFromJson(jsonString);
+
 import 'dart:convert';
+
+Response5ForecastWeather response5ForecastWeatherFromJson(String str) =>
+    Response5ForecastWeather.fromJson(json.decode(str));
+
+String response5ForecastWeatherToJson(Response5ForecastWeather data) =>
+    json.encode(data.toJson());
 
 class Response5ForecastWeather {
   String? cod;
@@ -14,11 +24,6 @@ class Response5ForecastWeather {
     this.list,
     this.city,
   });
-
-  factory Response5ForecastWeather.fromRawJson(String str) =>
-      Response5ForecastWeather.fromJson(json.decode(str));
-
-  String toRawJson() => json.encode(toJson());
 
   factory Response5ForecastWeather.fromJson(Map<String, dynamic> json) =>
       Response5ForecastWeather(
@@ -64,10 +69,6 @@ class City {
     this.sunset,
   });
 
-  factory City.fromRawJson(String str) => City.fromJson(json.decode(str));
-
-  String toRawJson() => json.encode(toJson());
-
   factory City.fromJson(Map<String, dynamic> json) => City(
         id: json["id"],
         name: json["name"],
@@ -99,10 +100,6 @@ class Coord {
     this.lat,
     this.lon,
   });
-
-  factory Coord.fromRawJson(String str) => Coord.fromJson(json.decode(str));
-
-  String toRawJson() => json.encode(toJson());
 
   factory Coord.fromJson(Map<String, dynamic> json) => Coord(
         lat: json["lat"]?.toDouble(),
@@ -139,11 +136,6 @@ class ListElement {
     this.dtTxt,
     this.rain,
   });
-
-  factory ListElement.fromRawJson(String str) =>
-      ListElement.fromJson(json.decode(str));
-
-  String toRawJson() => json.encode(toJson());
 
   factory ListElement.fromJson(Map<String, dynamic> json) => ListElement(
         dt: json["dt"],
@@ -184,10 +176,6 @@ class Clouds {
     this.all,
   });
 
-  factory Clouds.fromRawJson(String str) => Clouds.fromJson(json.decode(str));
-
-  String toRawJson() => json.encode(toJson());
-
   factory Clouds.fromJson(Map<String, dynamic> json) => Clouds(
         all: json["all"],
       );
@@ -219,11 +207,6 @@ class MainClass {
     this.humidity,
     this.tempKf,
   });
-
-  factory MainClass.fromRawJson(String str) =>
-      MainClass.fromJson(json.decode(str));
-
-  String toRawJson() => json.encode(toJson());
 
   factory MainClass.fromJson(Map<String, dynamic> json) => MainClass(
         temp: json["temp"]?.toDouble(),
@@ -257,10 +240,6 @@ class Rain {
     this.the3H,
   });
 
-  factory Rain.fromRawJson(String str) => Rain.fromJson(json.decode(str));
-
-  String toRawJson() => json.encode(toJson());
-
   factory Rain.fromJson(Map<String, dynamic> json) => Rain(
         the3H: json["3h"]?.toDouble(),
       );
@@ -276,10 +255,6 @@ class Sys {
   Sys({
     this.pod,
   });
-
-  factory Sys.fromRawJson(String str) => Sys.fromJson(json.decode(str));
-
-  String toRawJson() => json.encode(toJson());
 
   factory Sys.fromJson(Map<String, dynamic> json) => Sys(
         pod: podValues.map[json["pod"]]!,
@@ -297,7 +272,7 @@ final podValues = EnumValues({"d": Pod.D, "n": Pod.N});
 class Weather {
   int? id;
   MainEnum? main;
-  Description? description;
+  String? description;
   String? icon;
 
   Weather({
@@ -307,50 +282,27 @@ class Weather {
     this.icon,
   });
 
-  factory Weather.fromRawJson(String str) => Weather.fromJson(json.decode(str));
-
-  String toRawJson() => json.encode(toJson());
-
   factory Weather.fromJson(Map<String, dynamic> json) => Weather(
         id: json["id"],
         main: mainEnumValues.map[json["main"]]!,
-        description: descriptionValues.map[json["description"]]!,
+        description: json["description"],
         icon: json["icon"],
       );
 
   Map<String, dynamic> toJson() => {
         "id": id,
         "main": mainEnumValues.reverse[main],
-        "description": descriptionValues.reverse[description],
+        "description": description,
         "icon": icon,
       };
 }
 
-enum Description {
-  BROKEN_CLOUDS,
-  CLEAR_SKY,
-  FEW_CLOUDS,
-  LIGHT_RAIN,
-  OVERCAST_CLOUDS,
-  SCATTERED_CLOUDS
-}
-
-final descriptionValues = EnumValues({
-  "broken clouds": Description.BROKEN_CLOUDS,
-  "clear sky": Description.CLEAR_SKY,
-  "few clouds": Description.FEW_CLOUDS,
-  "light rain": Description.LIGHT_RAIN,
-  "overcast clouds": Description.OVERCAST_CLOUDS,
-  "scattered clouds": Description.SCATTERED_CLOUDS
-});
-
-enum MainEnum { CLEAR, CLOUDS, RAIN, SNOW }
+enum MainEnum { CLEAR, CLOUDS, RAIN }
 
 final mainEnumValues = EnumValues({
   "Clear": MainEnum.CLEAR,
   "Clouds": MainEnum.CLOUDS,
-  "Rain": MainEnum.RAIN,
-  'Snow': MainEnum.SNOW
+  "Rain": MainEnum.RAIN
 });
 
 class Wind {
@@ -363,10 +315,6 @@ class Wind {
     this.deg,
     this.gust,
   });
-
-  factory Wind.fromRawJson(String str) => Wind.fromJson(json.decode(str));
-
-  String toRawJson() => json.encode(toJson());
 
   factory Wind.fromJson(Map<String, dynamic> json) => Wind(
         speed: json["speed"]?.toDouble(),

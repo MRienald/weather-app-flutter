@@ -48,18 +48,7 @@ class DetailInfoEarthquake extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      // "26 Oktober 2023 | 12:44:17 WIB",
-                      ((controller.currentEarthquake != null)
-                              ? controller.currentEarthquake.tanggal
-                              : (controller.updateEarthquake == null)
-                                  ? "0"
-                                  : controller.updateEarthquake.tanggal) +
-                          " | " +
-                          ((controller.currentEarthquake != null)
-                              ? controller.currentEarthquake.jam
-                              : (controller.updateEarthquake == null)
-                                  ? "0"
-                                  : controller.updateEarthquake.jam),
+                      "${(controller.currentEarthquake != null) ? controller.currentEarthquake.tanggal : (controller.updateEarthquake == null) ? 0 : controller.updateEarthquake.tanggal} | ${(controller.currentEarthquake != null) ? controller.currentEarthquake.jam : (controller.updateEarthquake == null) ? "0" : controller.updateEarthquake.jam}",
                       style: TextStyle(
                         fontSize: 4.w,
                         fontWeight: FontWeight.w700,
@@ -102,10 +91,7 @@ class DetailInfoEarthquake extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                // "III-IV Saumlaki",
-                                (controller.updateEarthquake == null)
-                                    ? "0"
-                                    : controller.updateEarthquake.dirasakan,
+                                controller.updateEarthquake.dirasakan ?? "0",
                                 style: TextStyle(
                                   fontSize: 4.w,
                                   fontWeight: FontWeight.w700,
@@ -150,10 +136,8 @@ class DetailInfoEarthquake extends StatelessWidget {
                     Text(
                       // "Pusat Gempa berada di laut 176 km Timur laut Maluku Barat Daya",
                       (controller.currentEarthquake != null)
-                          ? "Pusat Gempa berada di ${controller.currentEarthquake.wilayah}"
-                          : (controller.updateEarthquake == null)
-                              ? "0"
-                              : controller.updateEarthquake.wilayah,
+                          ? "Pusat Gempa berada di ${controller.currentEarthquake.wilayah ?? ""}"
+                          : controller.updateEarthquake.wilayah ?? "",
                       style: TextStyle(
                         fontSize: 4.w,
                         fontWeight: FontWeight.w700,
