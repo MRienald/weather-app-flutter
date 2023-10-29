@@ -5,6 +5,7 @@ import 'package:weather_app_flutter/feature/navbar/navbar_binding.dart';
 import 'package:weather_app_flutter/feature/navbar/navbar_page.dart';
 import 'package:weather_app_flutter/feature/regist/regist_binding.dart';
 import 'package:weather_app_flutter/feature/regist/regist_page.dart';
+import 'package:weather_app_flutter/feature/splashscreen/splashscreen_page.dart';
 import 'package:weather_app_flutter/routes/page_names.dart';
 import 'package:weather_app_flutter/utils/widgets/loading_page.dart';
 
@@ -13,6 +14,10 @@ class PageRoutes {
     GetPage(
       name: PageName.LOADER,
       page: () => const LoadingPage(),
+    ),
+    GetPage(
+      name: PageName.SPLASHSCREEN,
+      page: () => const SplashScreenPage(),
     ),
     GetPage(
       name: PageName.NAVBAR,

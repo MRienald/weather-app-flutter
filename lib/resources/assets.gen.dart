@@ -116,6 +116,10 @@ class $LibResourcesImagesGen {
   AssetGenImage get icUv =>
       const AssetGenImage('lib/resources/images/ic_uv.png');
 
+  /// File path: lib/resources/images/ic_warning.png
+  AssetGenImage get icWarning =>
+      const AssetGenImage('lib/resources/images/ic_warning.png');
+
   /// File path: lib/resources/images/ic_weather-app.png
   AssetGenImage get icWeatherApp =>
       const AssetGenImage('lib/resources/images/ic_weather-app.png');
@@ -181,6 +185,7 @@ class $LibResourcesImagesGen {
         icSunset,
         icThermometer,
         icUv,
+        icWarning,
         icWeatherApp,
         icWind,
         imgBmkgAsset,

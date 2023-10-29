@@ -1,16 +1,13 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:get/get.dart';
-import 'package:logger/logger.dart';
 import 'package:sizer/sizer.dart';
 import 'package:weather_app_flutter/feature/regist/regist_controller.dart';
 import 'package:weather_app_flutter/resources/resources.dart';
 import 'package:weather_app_flutter/routes/page_names.dart';
-import 'package:weather_app_flutter/utils/firebase_service/auth_service.dart';
 import 'package:weather_app_flutter/utils/helper/validator.dart';
 
 class RegistPage extends StatelessWidget {
@@ -179,14 +176,13 @@ class RegistPage extends StatelessWidget {
                     ),
                     InkWell(
                       onTap: () {
-                        Logger().e(FirebaseAuth.instance.currentUser);
-                        // if (controller.formKey.currentState != null &&
-                        //     controller.formKey.currentState!
-                        //         .saveAndValidate()) {
-                        //   controller
-                        //       .registAccount()
-                        //       .then((value) => Get.toNamed(PageName.LOGIN));
-                        // }
+                        if (controller.formKey.currentState != null &&
+                            controller.formKey.currentState!
+                                .saveAndValidate()) {
+                          controller
+                              .registAccount()
+                              .then((value) => Get.toNamed(PageName.LOGIN));
+                        }
                       },
                       child: Container(
                         margin: EdgeInsets.only(top: 8.h),
