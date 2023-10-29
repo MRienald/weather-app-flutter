@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:logger/logger.dart';
 import 'package:weather_app_flutter/data/remote/base/base_controller.dart';
 import 'package:weather_app_flutter/data/remote/errorhandler/error_handler.dart';
+import 'package:weather_app_flutter/routes/page_names.dart';
 
 class RegistController extends BaseController {
   @override
@@ -52,6 +53,7 @@ class RegistController extends BaseController {
         finishLoadData(errorMessage: "Registrasi Gagal!");
         debugPrint("User tidak ditemukan setelah registrasi.");
       }
+      Get.offAllNamed(PageName.LOGIN);
     } catch (error) {
       finishLoadData(errorMessage: "Registrasi Gagal!");
       debugPrint("Terjadi kesalahan: $error");
