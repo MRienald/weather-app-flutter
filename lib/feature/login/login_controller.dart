@@ -19,7 +19,7 @@ class LoginController extends BaseController {
 
   @override
   // TODO: implement statusData
-  get statusData => throw UnimplementedError();
+  get statusData => dataObj;
 
   @override
   // TODO: implement storageName
@@ -35,6 +35,7 @@ class LoginController extends BaseController {
   }
 
   Future<void> login() async {
+    loadingState();
     await FirebaseAuth.instance
         .signInWithEmailAndPassword(
       email: formKey.currentState?.value['username'],
@@ -43,6 +44,7 @@ class LoginController extends BaseController {
         .then((value) async {
       await authController.saveAuthData(
           user: value.user!, token: value.user?.uid ?? "");
+      finishLoadData();
     }).handleError((onError) {
       finishLoadData(errorMessage: onError.toString());
       debugPrint("error : " + onError.toString());
