@@ -20,7 +20,7 @@ class RegistController extends BaseController {
 
   @override
   // TODO: implement statusData
-  get statusData => throw UnimplementedError();
+  get statusData => dataObj;
 
   @override
   // TODO: implement storageName
@@ -36,6 +36,7 @@ class RegistController extends BaseController {
   }
 
   Future<void> registAccount() async {
+    loadingState();
     try {
       UserCredential userCredential =
           await FirebaseAuth.instance.createUserWithEmailAndPassword(
